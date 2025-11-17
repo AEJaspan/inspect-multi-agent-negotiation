@@ -1,0 +1,133 @@
+{
+  "scenarios": [
+    {
+      "id": "salary_negotiation_1",
+      "topic": "Software Engineer Salary Negotiation",
+      "max_rounds": 5,
+      "agent_a_objectives": "You are the hiring manager for a tech startup. Your goals:\n- Hire a talented senior software engineer\n- Stay within budget: $120K-$150K base salary\n- Offer equity to compensate for below-market cash\n- Fill the position within 2 weeks",
+      "agent_a_constraints": "- Company budget caps base salary at $150K\n- Can offer up to 0.5% equity\n- Cannot offer more than 4 weeks vacation\n- Must maintain internal pay equity (current seniors make $130K-$145K)",
+      "agent_a_personality": "Professional and friendly. You're excited about the candidate but need to balance enthusiasm with fiscal responsibility. You emphasize company culture, growth opportunity, and equity upside.",
+      "agent_b_objectives": "You are a senior software engineer with 8 years experience. Your goals:\n- Secure a base salary of $160K+ (you currently make $155K)\n- Get equity/stock options\n- Maintain 5 weeks vacation (current benefit)\n- Achieve work-life balance (max 40 hours/week)",
+      "agent_b_constraints": "- You have another offer: $165K base, 0.1% equity, 3 weeks vacation\n- You prefer this company's mission and tech stack\n- You need to decide within 1 week\n- Minimum acceptable: $150K base + meaningful equity",
+      "agent_b_personality": "Confident but reasonable. You know your worth and have alternatives, but you're genuinely interested in this opportunity. You're willing to trade cash for equity if the upside is compelling.",
+      "deal_template": "Base Salary: $X\nEquity: Y%\nVacation: Z weeks\nStart Date: [date]\nOther benefits: [list]",
+      "expected_outcome": "Successful deal around $145K-$150K base + 0.3-0.5% equity + 4 weeks vacation"
+    },
+    {
+      "id": "real_estate_1",
+      "topic": "House Purchase Negotiation",
+      "max_rounds": 6,
+      "agent_a_objectives": "You are selling your house. Your goals:\n- Maximize sale price (listed at $650K)\n- Close within 60 days\n- Avoid costly repairs - sell as-is preferred\n- Cover your moving costs ($10K)",
+      "agent_a_constraints": "- You owe $500K on mortgage (minimum you can accept)\n- You need $550K net after fees to afford your next home\n- Major roof repair would cost $25K if you had to fix it\n- HVAC is 15 years old and working but probably needs replacing soon",
+      "agent_a_personality": "Motivated to sell but not desperate. You've owned this house for 10 years and know the neighborhood well. You're realistic about the property's condition but emphasize its location and potential.",
+      "agent_b_objectives": "You are a first-time homebuyer. Your goals:\n- Purchase house at or below $620K\n- Get seller to handle major repairs or reduce price accordingly\n- Close within 45 days to align with apartment lease\n- Include appliances in sale",
+      "agent_b_constraints": "- Pre-approved for mortgage up to $640K\n- Have $50K for down payment and closing costs\n- Home inspection revealed: roof needs work ($25K), HVAC is old\n- Alternative house available for $630K in similar condition but worse location",
+      "agent_b_personality": "Excited but cautious first-time buyer. You love the house and location but concerned about the repair costs. You're willing to pay fair market value but not overpay, especially given the needed repairs.",
+      "deal_template": "Purchase Price: $X\nSeller Repairs: [list items and cost coverage]\nIncluded Appliances: [list]\nClosing Date: [date]\nContingencies: [inspection, appraisal, financing]\nSeller Concessions: $Y",
+      "expected_outcome": "Deal around $615K-$630K with seller providing $10-15K in concessions or credits for repairs"
+    },
+    {
+      "id": "vendor_contract_1",
+      "topic": "Marketing Services Contract Negotiation",
+      "max_rounds": 5,
+      "agent_a_objectives": "You are a marketing agency offering services. Your goals:\n- Secure a 12-month contract worth $15K/month ($180K total)\n- Establish a new client relationship\n- Get 50% payment upfront for first quarter\n- Include performance bonus clause",
+      "agent_a_constraints": "- Your costs are $8K/month (minimum to break even)\n- You can discount to $12K/month for 12-month commitment\n- Need at least 30% upfront to cover initial campaign setup\n- Cannot offer month-to-month without 20% premium",
+      "agent_a_personality": "Professional and value-focused. You emphasize ROI and past success stories. You're willing to structure creative payment terms but need to maintain profitability. You build relationships for long-term partnerships.",
+      "agent_b_objectives": "You are a startup CMO hiring a marketing agency. Your goals:\n- Get high-quality marketing services for $10K/month or less\n- Start with 3-6 month trial before long-term commitment\n- Performance-based pricing (pay for results)\n- Monthly payment terms (not quarterly)",
+      "agent_b_constraints": "- Marketing budget: $120K/year ($10K/month)\n- Board wants to see ROI before long commitment\n- Cash flow tight - cannot do large upfront payments\n- Alternative: hire in-house junior marketer for $8K/month fully loaded",
+      "agent_b_personality": "Budget-conscious but appreciates quality. You're under pressure to show marketing results but have limited resources. You prefer performance-based arrangements to reduce risk. You're evaluating multiple agencies.",
+      "deal_template": "Monthly Fee: $X\nContract Length: Y months\nPayment Terms: [monthly/quarterly/upfront %]\nPerformance Bonuses: [triggers and amounts]\nDeliverables: [list]\nTermination Clause: [notice period]",
+      "expected_outcome": "6-month contract at $11-12K/month with performance bonuses, monthly billing, and option to extend"
+    },
+    {
+      "id": "supplier_negotiation_1",
+      "topic": "Manufacturing Component Supply Agreement",
+      "max_rounds": 6,
+      "agent_a_objectives": "You are a manufacturer buying components. Your goals:\n- Reduce component cost from $15/unit to $12/unit or less\n- Secure guaranteed delivery schedule (10,000 units/month)\n- Get 90-day payment terms\n- Lock in price for 2 years",
+      "agent_a_constraints": "- Currently paying $15/unit from existing supplier\n- Need 10,000 units/month with <2% defect rate\n- Cannot hold more than 2 months inventory (space constraints)\n- Alternative supplier quotes $13.50/unit but unknown quality\n- If costs don't decrease, your product isn't profitable",
+      "agent_a_personality": "Analytical and fact-focused. You have detailed cost models and aren't afraid to walk away if numbers don't work. However, you value supplier relationships and reliability over pure price. You're open to creative solutions.",
+      "agent_b_objectives": "You are a component supplier. Your goals:\n- Maintain price at $15/unit (your list price)\n- Secure long-term contract (2+ years)\n- Get 30-day payment terms maximum\n- Increase order volume to 15,000+ units/month",
+      "agent_b_constraints": "- Your cost is $10/unit (need 30% margin minimum = $13/unit price floor)\n- Can discount to $13.50/unit for 2-year contract + 15K/month volume\n- Cannot extend beyond 60-day payment terms without finance approval\n- Raw material costs fluctuating - need price adjustment clause for 2-year deal",
+      "agent_b_personality": "Relationship-focused but firm on margins. You want to be a strategic partner, not just a vendor. You're willing to offer volume discounts and value-added services but need fair pricing. You emphasize quality and reliability.",
+      "deal_template": "Price per Unit: $X\nMonthly Volume Commitment: Y units\nContract Term: Z years\nPayment Terms: Net [days]\nQuality Guarantee: [defect rate and remedies]\nPrice Adjustment Clause: [formula or triggers]\nDelivery Schedule: [frequency and lead time]",
+      "expected_outcome": "2-year contract at $13.00-13.50/unit for 12,000 units/month with 60-day payment terms and annual price review clause"
+    },
+    {
+      "id": "partnership_negotiation_1",
+      "topic": "Co-Founder Equity Split Negotiation",
+      "max_rounds": 7,
+      "agent_a_objectives": "You are the technical co-founder with the original idea. Your goals:\n- Secure 55-60% equity as founding CEO\n- Maintain voting control on major decisions\n- Get co-founder to accept 4-year vesting with 1-year cliff\n- Define clear roles and responsibilities",
+      "agent_a_constraints": "- You've invested 6 months and $20K developing the prototype\n- You'll work full-time without salary initially\n- You have technical expertise but need business/sales help\n- Investors typically want balanced teams (not too lopsided)",
+      "agent_a_personality": "Passionate about your vision but recognize you need a strong team. You're protective of your idea but understand shared ownership motivates partners. You value fairness but also believe founders should be rewarded for early risk.",
+      "agent_b_objectives": "You are the business co-founder being recruited. Your goals:\n- Get 45-50% equity (equal or near-equal partnership)\n- Equal decision-making authority\n- Shorter vesting period (3 years) due to later start\n- Ensure roles/compensation are clearly defined",
+      "agent_b_constraints": "- You're leaving a $150K/year job to join\n- You have strong network and sales skills needed for success\n- You haven't invested time or money yet\n- You have other startup opportunities offering 30-40% equity",
+      "agent_b_personality": "Enthusiastic about the opportunity but cautious about joining as a clear junior partner. You bring substantial value (industry connections, business acumen, sales) and expect to be treated as an equal co-founder despite joining later.",
+      "deal_template": "Agent A (Technical) Equity: X%\nAgent B (Business) Equity: Y%\nVesting Schedule: [years] with [cliff period]\nDecision Rights: [description of voting/control]\nRoles: [CEO, CTO titles and responsibilities]\nSalary/Compensation: [initial terms]\nIP Assignment: [who owns what]\nExit Scenarios: [what happens if someone leaves]",
+      "expected_outcome": "Split around 52/48 or 50/50 with 4-year vesting, defined roles (CEO/COO or CEO/CTO), and clear decision-making framework"
+    },
+    {
+      "id": "freelance_negotiation_1",
+      "topic": "Freelance Web Development Project",
+      "max_rounds": 4,
+      "agent_a_objectives": "You are a freelance web developer. Your goals:\n- Get paid $80-100/hour for development work\n- Secure 50% upfront payment before starting\n- Limit scope to avoid scope creep\n- Maintain flexibility for other client work",
+      "agent_a_constraints": "- Your minimum rate is $75/hour to be profitable\n- Project will take approximately 100-120 hours\n- You need upfront payment to cover expenses\n- You have other projects - can only commit 20 hours/week",
+      "agent_a_personality": "Confident professional who knows their worth. You've been burned by scope creep and payment issues before. You're friendly but clear about boundaries, contracts, and payment terms. You deliver quality work but protect your time and business.",
+      "agent_b_objectives": "You are a small business owner hiring a developer. Your goals:\n- Get website built for $6,000 total (fixed price preferred)\n- Pay upon completion (or in milestones)\n- Ensure ongoing support/maintenance is included\n- Get project done within 6 weeks",
+      "agent_b_constraints": "- Total budget is $7,500 for website\n- Cash flow limited - prefer milestone payments\n- You need 3 months of post-launch support included\n- You have quotes from other developers: $5,500 (offshore) and $9,000 (local agency)",
+      "agent_b_personality": "Cost-conscious small business owner who appreciates quality but has limited budget. You're new to hiring developers and concerned about being overcharged or getting poor quality. You value communication and want a reliable partner.",
+      "deal_template": "Project Scope: [detailed description]\nTotal Cost: $X\nPayment Terms: [upfront/milestones/completion]\nTimeline: Y weeks\nRevisions Included: Z rounds\nPost-Launch Support: [duration and scope]\nDeliverables: [list]\nWhat's Not Included: [exclusions]",
+      "expected_outcome": "Fixed price $7,000-7,500 with 30% upfront, milestone payments, 6-week timeline, and 1 month post-launch support"
+    },
+    {
+      "id": "license_agreement_1",
+      "topic": "Software License Agreement Negotiation",
+      "max_rounds": 5,
+      "agent_a_objectives": "You are a software company licensing your product. Your goals:\n- Get annual license fee of $50K/year\n- Limit to 100 users (upsell for more)\n- Standard support only (charge extra for premium)\n- 3-year minimum commitment",
+      "agent_a_constraints": "- Your costs are low (SaaS product), high margins\n- Can discount to $40K/year for multi-year deals\n- Cannot offer unlimited users (hurts ability to upsell)\n- Premium support costs you $10K/year in resources",
+      "agent_a_personality": "Sales-focused but reasonable. You want to close the deal but also maximize revenue. You're skilled at positioning value and upselling additional features/support. You build relationships for renewals and expansion.",
+      "agent_b_objectives": "You are an IT director procuring software. Your goals:\n- Get license for $35K/year or less\n- Need 150 user licenses\n- Require premium support (24/7 response)\n- Want 1-year term to evaluate before long commitment",
+      "agent_b_constraints": "- Budget approved for $40K/year maximum\n- Must support 150 users from day one\n- Previous vendor's premium support was critical (can't compromise)\n- Alternative solution: $45K/year for 200 users with premium support",
+      "agent_b_personality": "Thorough and risk-averse. You've been burned by vendor lock-in before, so you're cautious about long commitments. You need to justify the purchase to executives, so you focus on ROI and total cost of ownership. You appreciate transparency.",
+      "deal_template": "Annual License Fee: $X\nNumber of Users: Y\nContract Term: Z years\nSupport Level: [Standard/Premium/Enterprise]\nSupport Response Times: [SLA details]\nRenewal Terms: [price increase caps]\nTermination Rights: [conditions]",
+      "expected_outcome": "2-year contract at $42-45K/year for 150 users with premium support, year 1 cancellation option with penalty"
+    },
+    {
+      "id": "merger_negotiation_1",
+      "topic": "Small Business Acquisition Negotiation",
+      "max_rounds": 8,
+      "agent_a_objectives": "You are selling your business. Your goals:\n- Sell for $2M (5x EBITDA of $400K)\n- Stay on for 6-month transition (paid)\n- Protect employees' jobs for 1 year\n- Get 50% cash, 50% earnout over 2 years",
+      "agent_a_constraints": "- Business generates $400K EBITDA\n- You're emotionally attached and want legacy protected\n- Need minimum $1.5M total to retire comfortably\n- Key employees might leave if not treated well\n- You're tired and want out but willing to help transition",
+      "agent_a_personality": "Pride in your business but ready to move on. You're emotionally invested in your employees and company culture. You want fair value but also want to ensure the business continues successfully. You're negotiable on structure but not on total value.",
+      "agent_b_objectives": "You are acquiring a business for strategic growth. Your goals:\n- Pay no more than $1.6M (4x EBITDA)\n- Structure with 70% upfront, 30% earnout tied to performance\n- Keep seller for 12-month transition (consulting basis)\n- Retain key employees but restructure team",
+      "agent_b_constraints": "- Budget approved for up to $1.8M\n- Need seller's expertise for minimum 9 months\n- Must integrate into existing operations (some redundancies inevitable)\n- Banks require seller earnout to secure financing\n- Have backup acquisition target at similar price",
+      "agent_b_personality": "Strategic and analytical. You see the value but also the risks. You're experienced at M&A and know many deals fail, hence your caution on structure. You respect the seller but need to protect your investment. You're willing to pay fair price for right terms.",
+      "deal_template": "Purchase Price: $X\nPayment Structure: $Y upfront, $Z earnout\nEarnout Terms: [conditions and timeline]\nSeller Transition: [duration, role, compensation]\nEmployee Protections: [commitments]\nNon-Compete: [duration and scope]\nWarranties/Representations: [key items]\nClosing Conditions: [contingencies]",
+      "expected_outcome": "Deal at $1.7-1.8M with 65% upfront, 35% earnout over 18-24 months, 9-12 month paid transition, and employee protections for 6 months"
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-11-17",
+    "total_scenarios": 8,
+    "categories": [
+      "employment",
+      "real_estate",
+      "business_services",
+      "supply_chain",
+      "partnerships",
+      "freelance",
+      "licensing",
+      "mergers_acquisitions"
+    ],
+    "difficulty_levels": {
+      "salary_negotiation_1": "medium",
+      "real_estate_1": "medium",
+      "vendor_contract_1": "medium",
+      "supplier_negotiation_1": "hard",
+      "partnership_negotiation_1": "hard",
+      "freelance_negotiation_1": "easy",
+      "license_agreement_1": "medium",
+      "merger_negotiation_1": "very_hard"
+    }
+  }
+}

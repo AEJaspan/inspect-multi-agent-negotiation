@@ -1,0 +1,18 @@
+[project]
+name = "inspectaiNegotiation"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.72.0",
+    "inspect-ai>=0.3.145",
+    "openai>=2.7.2",
+    "pandas>=2.3.3",
+    "streamlit>=1.51.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "new",
+]
