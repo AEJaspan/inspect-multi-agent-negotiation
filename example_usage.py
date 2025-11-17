@@ -19,6 +19,8 @@ import json
 import asyncio
 from dotenv import load_dotenv, find_dotenv
 
+import re
+
 load_dotenv(find_dotenv())
 
 
@@ -37,13 +39,13 @@ async def run_single_negotiation_example():
     print(f"{'='*60}\n")
     
     # Initialize state
+    start_msg = f"Begin negotiation on: {scenario['topic']}"
     state = TaskState(
-        messages=[ChatMessageUser(content=f"Begin negotiation on: {scenario['topic']}")],
+        messages=[ChatMessageUser(content=start_msg)],
         input=scenario['topic'],
         sample_id=scenario['id'],
         epoch=0,
         model="inspect/openai/gpt-4o-mini",
-        # sample=Sample(input=scenario['topic'], target="success")
     )
     
     max_rounds = scenario['max_rounds']
@@ -73,17 +75,60 @@ async def run_single_negotiation_example():
             print("✅ Deal reached by Agent B!")
             break
     
+    # --- extract final numeric value and compute winner-by-distance ---
+    def parse_amounts(text):
+        if not text:
+            return []
+        pattern = (
+            r"(?i)(?:[$£€])?\s*"
+            r"([0-9]{1,3}(?:[,\s][0-9]{3})*|[0-9]+(?:\.[0-9]+)?)"
+            r"([kKmM])?"
+        )
+        matches = re.findall(pattern, text)
+        out = []
+        for num_str, suffix in matches:
+            n = num_str.replace(',', '').replace(' ', '')
+            try:
+                val = float(n)
+            except ValueError:
+                continue
+            if suffix:
+                s = suffix.lower()
+                if s == 'k':
+                    val *= 1_000
+                elif s == 'm':
+                    val *= 1_000_000
+            out.append(val)
+        return out
+
+    def extract_final_amount(messages):
+        for m in reversed(messages):
+            text = getattr(m, 'content', None)
+            amounts = parse_amounts(text)
+            if amounts:
+                return amounts[-1]
+        return None
+
+    final_amount = extract_final_amount(state.messages)
+    if final_amount is not None:
+        print(f"Final numeric value parsed: {final_amount}")
+        a_ideal = scenario.get('agent_a_ideal')
+        b_ideal = scenario.get('agent_b_ideal')
+        if a_ideal is not None and b_ideal is not None:
+            a_dist = abs(final_amount - float(a_ideal))
+            b_dist = abs(final_amount - float(b_ideal))
+            if a_dist < b_dist:
+                print("Winner by distance: Agent A (Hiring Manager)")
+            elif b_dist < a_dist:
+                print("Winner by distance: Agent B (Candidate)")
+            else:
+                print("Winner by distance: tie")
+    else:
+        print("No final numeric value could be parsed from messages.")
+
     print(f"\n{'='*60}")
     print("NEGOTIATION COMPLETE")
     print(f"{'='*60}\n")
-    
-    # Print summary
-    print("Full conversation:")
-    for i, msg in enumerate(state.messages[1:], 1):  # Skip initial message
-        role = "🏢 Agent A" if msg.role == "assistant" and i % 2 == 1 else "👤 Agent B"
-        print(f"\n{role}:")
-        print(f"{msg.content[:300]}...")
-
 
 async def run_all_scenarios():
     """Run all negotiation scenarios from the dataset"""
@@ -98,9 +143,13 @@ async def run_all_scenarios():
         print(f"Running: {scenario['topic']}")
         print(f"{'='*60}")
         
+        start_msg = f"Begin negotiation on: {scenario['topic']}"
         state = TaskState(
-            messages=[ChatMessageUser(content=f"Begin negotiation on: {scenario['topic']}")],
-            sample=Sample(input=scenario['topic'], target="success")
+            messages=[ChatMessageUser(content=start_msg)],
+            input=scenario['topic'],
+            sample_id=scenario['id'],
+            epoch=0,
+            model="inspect/openai/gpt-4o-mini",
         )
         
         deal_reached = False
@@ -140,9 +189,14 @@ async def run_all_scenarios():
     for result in results:
         status = "✅ SUCCESS" if result['deal_reached'] else "❌ NO DEAL"
         print(f"{status} - {result['scenario']}")
-        print(f"   Rounds: {result['rounds']} | Messages: {result['total_messages']}")
+        print(
+            "   Rounds: " + str(result['rounds'])
+            + " | Messages: " + str(result['total_messages'])
+        )
     
-    success_rate = sum(1 for r in results if r['deal_reached']) / len(results) * 100
+    success_rate = (
+        sum(1 for r in results if r['deal_reached']) / len(results) * 100
+    )
     print(f"\n Overall Success Rate: {success_rate:.1f}%")
 
 

@@ -3,6 +3,9 @@
     {
       "id": "salary_negotiation_1",
       "topic": "Software Engineer Salary Negotiation",
+          "ideal_metric": "base_salary",
+          "agent_a_ideal": 130000,
+          "agent_b_ideal": 160000,
       "max_rounds": 5,
       "agent_a_objectives": "You are the hiring manager for a tech startup. Your goals:\n- Hire a talented senior software engineer\n- Stay within budget: $120K-$150K base salary\n- Offer equity to compensate for below-market cash\n- Fill the position within 2 weeks",
       "agent_a_constraints": "- Company budget caps base salary at $150K\n- Can offer up to 0.5% equity\n- Cannot offer more than 4 weeks vacation\n- Must maintain internal pay equity (current seniors make $130K-$145K)",
@@ -16,6 +19,9 @@
     {
       "id": "real_estate_1",
       "topic": "House Purchase Negotiation",
+          "ideal_metric": "purchase_price",
+          "agent_a_ideal": 650000,
+          "agent_b_ideal": 620000,
       "max_rounds": 6,
       "agent_a_objectives": "You are selling your house. Your goals:\n- Maximize sale price (listed at $650K)\n- Close within 60 days\n- Avoid costly repairs - sell as-is preferred\n- Cover your moving costs ($10K)",
       "agent_a_constraints": "- You owe $500K on mortgage (minimum you can accept)\n- You need $550K net after fees to afford your next home\n- Major roof repair would cost $25K if you had to fix it\n- HVAC is 15 years old and working but probably needs replacing soon",
@@ -29,6 +35,9 @@
     {
       "id": "vendor_contract_1",
       "topic": "Marketing Services Contract Negotiation",
+          "ideal_metric": "monthly_fee",
+          "agent_a_ideal": 15000,
+          "agent_b_ideal": 10000,
       "max_rounds": 5,
       "agent_a_objectives": "You are a marketing agency offering services. Your goals:\n- Secure a 12-month contract worth $15K/month ($180K total)\n- Establish a new client relationship\n- Get 50% payment upfront for first quarter\n- Include performance bonus clause",
       "agent_a_constraints": "- Your costs are $8K/month (minimum to break even)\n- You can discount to $12K/month for 12-month commitment\n- Need at least 30% upfront to cover initial campaign setup\n- Cannot offer month-to-month without 20% premium",
@@ -42,6 +51,9 @@
     {
       "id": "supplier_negotiation_1",
       "topic": "Manufacturing Component Supply Agreement",
+          "ideal_metric": "price_per_unit",
+          "agent_a_ideal": 12.0,
+          "agent_b_ideal": 15.0,
       "max_rounds": 6,
       "agent_a_objectives": "You are a manufacturer buying components. Your goals:\n- Reduce component cost from $15/unit to $12/unit or less\n- Secure guaranteed delivery schedule (10,000 units/month)\n- Get 90-day payment terms\n- Lock in price for 2 years",
       "agent_a_constraints": "- Currently paying $15/unit from existing supplier\n- Need 10,000 units/month with <2% defect rate\n- Cannot hold more than 2 months inventory (space constraints)\n- Alternative supplier quotes $13.50/unit but unknown quality\n- If costs don't decrease, your product isn't profitable",
@@ -55,6 +67,9 @@
     {
       "id": "partnership_negotiation_1",
       "topic": "Co-Founder Equity Split Negotiation",
+          "ideal_metric": "equity_percent_a",
+          "agent_a_ideal": 57.5,
+          "agent_b_ideal": 42.5,
       "max_rounds": 7,
       "agent_a_objectives": "You are the technical co-founder with the original idea. Your goals:\n- Secure 55-60% equity as founding CEO\n- Maintain voting control on major decisions\n- Get co-founder to accept 4-year vesting with 1-year cliff\n- Define clear roles and responsibilities",
       "agent_a_constraints": "- You've invested 6 months and $20K developing the prototype\n- You'll work full-time without salary initially\n- You have technical expertise but need business/sales help\n- Investors typically want balanced teams (not too lopsided)",
@@ -68,6 +83,9 @@
     {
       "id": "freelance_negotiation_1",
       "topic": "Freelance Web Development Project",
+          "ideal_metric": "total_project_cost",
+          "agent_a_ideal": 90.0,
+          "agent_b_ideal": 7000,
       "max_rounds": 4,
       "agent_a_objectives": "You are a freelance web developer. Your goals:\n- Get paid $80-100/hour for development work\n- Secure 50% upfront payment before starting\n- Limit scope to avoid scope creep\n- Maintain flexibility for other client work",
       "agent_a_constraints": "- Your minimum rate is $75/hour to be profitable\n- Project will take approximately 100-120 hours\n- You need upfront payment to cover expenses\n- You have other projects - can only commit 20 hours/week",
@@ -81,6 +99,9 @@
     {
       "id": "license_agreement_1",
       "topic": "Software License Agreement Negotiation",
+          "ideal_metric": "annual_license_fee",
+          "agent_a_ideal": 50000,
+          "agent_b_ideal": 35000,
       "max_rounds": 5,
       "agent_a_objectives": "You are a software company licensing your product. Your goals:\n- Get annual license fee of $50K/year\n- Limit to 100 users (upsell for more)\n- Standard support only (charge extra for premium)\n- 3-year minimum commitment",
       "agent_a_constraints": "- Your costs are low (SaaS product), high margins\n- Can discount to $40K/year for multi-year deals\n- Cannot offer unlimited users (hurts ability to upsell)\n- Premium support costs you $10K/year in resources",
@@ -94,6 +115,9 @@
     {
       "id": "merger_negotiation_1",
       "topic": "Small Business Acquisition Negotiation",
+          "ideal_metric": "purchase_price",
+          "agent_a_ideal": 2000000,
+          "agent_b_ideal": 1600000,
       "max_rounds": 8,
       "agent_a_objectives": "You are selling your business. Your goals:\n- Sell for $2M (5x EBITDA of $400K)\n- Stay on for 6-month transition (paid)\n- Protect employees' jobs for 1 year\n- Get 50% cash, 50% earnout over 2 years",
       "agent_a_constraints": "- Business generates $400K EBITDA\n- You're emotionally attached and want legacy protected\n- Need minimum $1.5M total to retire comfortably\n- Key employees might leave if not treated well\n- You're tired and want out but willing to help transition",
